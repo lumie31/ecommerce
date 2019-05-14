@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "../logo.svg";
-import ProductList from "./ProductList";
+import styled from "styled-components";
 import { MyButton } from "./Button";
 
 export default class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+      <NavWrapper className="navbar navbar-expand-sm navbar-dark bg-dark">
         {/* 
         https://www.iconfinder.com/icons/1243689/call_phone_icon
         Creative Commons (Attribution 3.0 Unported);
@@ -32,7 +32,15 @@ export default class Navbar extends Component {
             My cart
           </MyButton>
         </Link>
-      </nav>
+      </NavWrapper>
     );
   }
 }
+
+const NavWrapper = styled.nav`
+  .nav-link {
+    color: palevioletred !important;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+  }
+`;
