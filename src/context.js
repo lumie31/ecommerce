@@ -3,7 +3,7 @@ import { storeProducts, detailProduct } from "./data";
 
 const ProductContext = React.createContext();
 
-export default class ProductProvider extends Component {
+class ProductProvider extends Component {
   state = {
     products: storeProducts,
     detailProduct
