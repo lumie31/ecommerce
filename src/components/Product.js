@@ -56,7 +56,7 @@ Product.propTypes = {
 const ProductWrapper = styled.div`
   .card {
     border-radius: 15px;
-    transition: all 0.5s linear;
+    transition: all 1s linear;
   }
   .card-footer {
     border-radius: 0px 0px 15px 15px;
@@ -72,7 +72,7 @@ const ProductWrapper = styled.div`
     overflow: hidden;
   }
   .card-img-top {
-    transition: all 0.5s ease-in-out;
+    transition: all 1s ease-in-out;
   }
   .img-container:hover .card-img-top {
     transform: scale(1.2);
@@ -89,9 +89,9 @@ const ProductWrapper = styled.div`
     border-radius: 0 0.875rem 0 0;
     cursor: pointer;
     transform: translate(100%, 100%);
+    transition: all 1s ease-in-out;
   }
   .img-container:hover .card-btn {
     transform: translate(0, 0);
-    transition: all 0.5s ease-in-out;
   }
 `;

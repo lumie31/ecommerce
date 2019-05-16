@@ -17,8 +17,8 @@ class ProductProvider extends Component {
     console.log("hello from detail");
   };
 
-  addToCart = () => {
-    console.log("hello from add to cart");
+  addToCart = id => {
+    console.log(`hello from add to cart with id ${id}`);
   };
 
   setProducts = () => {
@@ -26,7 +26,7 @@ class ProductProvider extends Component {
     storeProducts.forEach(item => {
       const singleItem = { ...item };
       tempProducts = [...tempProducts, singleItem];
-      console.log(singleItem);
+      // console.log(singleItem);
     });
     this.setState(() => {
       return { products: tempProducts };
