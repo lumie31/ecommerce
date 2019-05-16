@@ -10,27 +10,31 @@ export default class Product extends Component {
     return (
       <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
         <div className="card">
-          <div
-            className="img-container p-5"
-            onClick={() => console.log("You clicked me!")}
-          >
-            <Link to="/details">
-              <img src={img} alt="product" className="card-img-top" />
-            </Link>
-            <button
-              className="card-btn"
-              onClick={() => {
-                console.log("added to cart");
-              }}
-              disabled={inCart ? true : false}
-            >
-              {inCart ? (
-                <p className="text-capitalize mb-0">in cart</p>
-              ) : (
-                <i className="fas fa-shopping-cart" />
-              )}
-            </button>
-          </div>
+          <ProductConsumer>
+            {value => (
+              <div
+                className="img-container p-5"
+                onClick={() => value.handleDetail(id)}
+              >
+                <Link to="/details">
+                  <img src={img} alt="product" className="card-img-top" />
+                </Link>
+                <button
+                  className="card-btn"
+                  onClick={() => {
+                    value.addToCart(id);
+                  }}
+                  disabled={inCart ? true : false}
+                >
+                  {inCart ? (
+                    <p className="text-capitalize mb-0">in cart</p>
+                  ) : (
+                    <i className="fas fa-shopping-cart" />
+                  )}
+                </button>
+              </div>
+            )}
+          </ProductConsumer>
           <div className="card-footer d-flex justify-content-between">
             <p className="align-self-center mb-0">{title}</p>
             <h5 className="text-palevioletred font-italic mb-0">
@@ -72,7 +76,7 @@ const ProductWrapper = styled.div`
     overflow: hidden;
   }
   .card-img-top {
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .img-container:hover .card-img-top {
     transform: scale(1.2);
@@ -89,7 +93,7 @@ const ProductWrapper = styled.div`
     border-radius: 0 0.875rem 0 0;
     cursor: pointer;
     transform: translate(100%, 100%);
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .img-container:hover .card-btn {
     transform: translate(0, 0);
