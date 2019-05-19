@@ -23,6 +23,7 @@ export default class Product extends Component {
                   className="card-btn"
                   onClick={() => {
                     value.addToCart(id);
+                    value.modalOpen(id);
                   }}
                   disabled={inCart ? true : false}
                 >
