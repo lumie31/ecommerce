@@ -50,7 +50,7 @@ class ProductProvider extends Component {
     );
   };
 
-  modalOpen = id => {
+  openModal = id => {
     const product = this.getItem(id);
     this.setState(() => {
       return {
@@ -60,7 +60,7 @@ class ProductProvider extends Component {
     });
   };
 
-  modalClose = () => {
+  closeModal = () => {
     this.setState(() => {
       return {
         modalOpen: false
@@ -88,8 +88,8 @@ class ProductProvider extends Component {
           ...this.state,
           handleDetail: this.handleDetail,
           addToCart: this.addToCart,
-          modalOpen: this.modalOpen,
-          modalClose: this.modalClose
+          openModal: this.openModal,
+          closeModal: this.closeModal
         }}
       >
         {this.props.children}
